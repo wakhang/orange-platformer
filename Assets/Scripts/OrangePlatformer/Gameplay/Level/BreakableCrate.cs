@@ -6,6 +6,8 @@ namespace OrangePlatformer.Gameplay
     public class BreakableCrate : MonoBehaviour, IGroundPoundable
     {
         [SerializeField] private GameObject orangeChild;
+        /// <summary>상자가 부서질 때(상자 중심). 이펙트용.</summary>
+        public static event System.Action<Vector3> Broken;
 
         private Renderer[] ownRenderers;
         private Collider[] ownColliders;
@@ -35,6 +37,7 @@ namespace OrangePlatformer.Gameplay
 
             // 오렌지 카운트는 플레이어가 오렌지를 만질 때만 증가
             if (orangeChild != null) orangeChild.SetActive(true);
+            Broken?.Invoke(transform.position);
         }
     }
 }

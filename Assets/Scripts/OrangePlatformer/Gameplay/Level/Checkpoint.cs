@@ -11,6 +11,9 @@ namespace OrangePlatformer.Gameplay
         private static readonly Color InactiveColor = new Color(0.6f, 0.6f, 0.6f, 1f);
         private static readonly Color ActiveColor = new Color(1f, 0.847f, 0.29f, 1f); // #FFD84A
 
+        /// <summary>체크포인트가 처음 켜질 때(깃발 위치). 이펙트용.</summary>
+        public static event System.Action<Vector3> Activated;
+
         [SerializeField] private Transform respawnPoint;
         [SerializeField] private Renderer flagRenderer;
 
@@ -40,6 +43,7 @@ namespace OrangePlatformer.Gameplay
             {
                 active = true;
                 ApplyColor(ActiveColor);
+                Activated?.Invoke(flagRenderer != null ? flagRenderer.bounds.center : transform.position);
             }
         }
 
