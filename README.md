@@ -9,9 +9,7 @@
 
 ## 플레이 영상 (1분 18초)
 
-[![플레이 미리보기 (벽 점프 · 높이뛰기 · 클리어)](Docs/Images/gameplay_preview.gif)](https://github.com/wakhang/orange-platformer/blob/main/Docs/Video/OrangePlatformer_Gameplay.mp4)
-
-▶ 위 움직이는 이미지는 일부 구간(약 17초) 미리보기입니다. 누르면 전체 영상(소리 포함)이 열립니다 · [Docs/Video/OrangePlatformer_Gameplay.mp4](Docs/Video/OrangePlatformer_Gameplay.mp4)
+[전체 영상 보기 · Docs/Video/OrangePlatformer_Gameplay.mp4](Docs/Video/OrangePlatformer_Gameplay.mp4)
 
 ## 다운로드 · 문서
 
