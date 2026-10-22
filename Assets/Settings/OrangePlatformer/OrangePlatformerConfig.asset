@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ada4417a6e4ba414baa4cee5e9404a5d, type: 3}
+  m_Name: OrangePlatformerConfig
+  m_EditorClassIdentifier: OrangePlatformer::OrangePlatformer.Core.OrangePlatformerConfig
+  moveSpeed: 6
+  crouchMoveSpeed: 2.5
+  groundAcceleration: 40
+  groundDeceleration: 50
+  airAcceleration: 20
+  turnSpeedDeg: 720
+  gravity: 30
+  maxFallSpeed: 25
+  jumpHeight: 1.6
+  doubleJumpHeight: 1.3
+  highJumpHeight: 4
+  highJumpForwardSpeed: 2
+  jumpCutMultiplier: 0.5
+  coyoteTime: 0.12
+  jumpBufferTime: 0.15
+  diveSpeed: 12
+  diveUpwardSpeed: 4
+  diveLandSlideTime: 0.35
+  wallSlideMaxFallSpeed: 3
+  wallJumpVerticalSpeed: 10
+  wallJumpHorizontalSpeed: 7
+  wallJumpInputLockTime: 0.2
+  wallContactGraceTime: 0.12
+  wallNormalMaxY: 0.3
+  groundPoundHangTime: 0.25
+  groundPoundSpeed: 25
+  groundPoundLandStunTime: 0.2
+  controllerHeight: 1
+  crouchHeight: 0.6
+  controllerRadius: 0.3
+  cameraDistance: 6
+  cameraMinDistance: 1
+  cameraPitchMin: -20
+  cameraPitchMax: 65
+  cameraDefaultPitch: 20
+  mouseSensitivity: 0.12
+  stickSensitivity: 180
+  cameraCollisionRadius: 0.25
+  cameraFollowSharpness: 12
+  cameraTargetHeight: 1
+  respawnDelay: 0.6
+  lidOpenDuration: 1
+  lidOpenHeight: 0.8
+  lidOpenAngle: 110
+  pickupRadius: 0.6
+  pickupSpinDegPerSec: 90
+  pickupBobAmplitude: 0.15
+  jumpStretch: 1.25
+  landSquash: 0.7
+  crouchScaleY: 0.7
+  squashRecoverSharpness: 12
+  flipDuration: 0.35
+  diveTiltDeg: 80
+  orangesRequired: 8
+  maxHearts: 3
