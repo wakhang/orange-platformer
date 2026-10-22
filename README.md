@@ -7,11 +7,18 @@
 
 ![대표 이미지](Docs/Images/12_vfx.png)
 
+## 플레이 영상 (1분 18초)
+
+[![플레이 영상](Docs/Images/video_thumb.png)](https://github.com/wakhang/orange-platformer/blob/main/Docs/Video/OrangePlatformer_Gameplay.mp4)
+
+▶ 이미지를 누르면 영상이 열립니다 · [Docs/Video/OrangePlatformer_Gameplay.mp4](Docs/Video/OrangePlatformer_Gameplay.mp4)
+
 ## 다운로드 · 문서
 
 | 항목 | 링크 |
 |---|---|
 | 실행 빌드 (Windows 64bit) | [Releases v1.0 · OrangePlatformer_Windows.zip](https://github.com/wakhang/orange-platformer/releases/tag/v1.0) — 압축 해제 후 `OrangePlatformer.exe` 실행 |
+| 플레이 영상 (1분 18초) | [Docs/Video/OrangePlatformer_Gameplay.mp4](Docs/Video/OrangePlatformer_Gameplay.mp4) · [Releases에서 다운로드](https://github.com/wakhang/orange-platformer/releases/tag/v1.0) |
 | 포트폴리오 PDF | [Docs/Portfolio/02_Unity_우정완.pdf](Docs/Portfolio/02_Unity_우정완.pdf) |
 | 기획서 | [Docs/Design/OrangePlatformer.md](Docs/Design/OrangePlatformer.md) · [OrangePlatformerPolish.md](Docs/Design/OrangePlatformerPolish.md) |
 | 1차 평가 리소스 | [wakhang/orange-platformer-assets](https://github.com/wakhang/orange-platformer-assets) (귤 캐릭터 · 귤 · 믹서기 FBX) |
