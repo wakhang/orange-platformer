@@ -9,6 +9,8 @@
 
 ## 플레이 영상 (1분 18초)
 
+
+
 [전체 영상 보기 · Docs/Video/OrangePlatformer_Gameplay.mp4](Docs/Video/OrangePlatformer_Gameplay.mp4)
 
 ## 다운로드 · 문서
