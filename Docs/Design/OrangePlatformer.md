@@ -39,7 +39,7 @@
 - **엉덩방아**: 공중(Airborne/WallSlide 제외, 다이브 중 제외)에서 Crouch 누름 → `GroundPoundHang` `groundPoundHangTime`(0.25 s) 동안 속도 0 정지(공중 회전 연출) → `GroundPoundFall` vy = −`groundPoundSpeed`(25), 수평 0. 아래 방향(n.y > 0.7) 충돌 대상에 `IGroundPoundable`이 있으면 `OnGroundPound(hitPoint)` 호출(상자는 파괴되고 낙하 계속). 실제 지면 착지 시 `groundPoundLandStunTime`(0.2 s) 이동 불가.
 - 플레이어 상태 `PlayerMotorState`: Grounded, Crouching, Airborne, WallSlide, Dive, DiveSlide, GroundPoundHang, GroundPoundFall, GroundPoundLand.
 
-### 3.2 절차적 연출 (애니메이션은 Idle·Walk만)
+### 3.2 절차적 연출 (애니메이션·기울기·지터 보간은 `OrangePlatformerPolish.md` §2–3이 대체)
 - Animator float `Speed` = 수평 속도(m/s). Idle→Walk Speed>0.1, Walk→Idle Speed<0.1.
 - 점프 시작: Visual 스케일 (0.9, `jumpStretch` 1.25, 0.9) → `squashRecoverSharpness`로 1 복귀. 착지: (1.15, `landSquash` 0.7, 1.15).
 - 이단 점프: Spin을 로컬 X축 360° 앞구르기 `flipDuration`(0.35 s). 높이뛰기: Y축 720° 회전 0.5 s. 벽 점프: Y축 180° 즉시 반전 + stretch.

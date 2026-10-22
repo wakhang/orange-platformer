@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 173122731768074543}
   - component: {fileID: 7334717087325204639}
+  - component: {fileID: 6401312633584942810}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -48,6 +49,20 @@ MonoBehaviour:
   config: {fileID: 11400000, guid: 5d05b7717eaead145a15ddef87675950, type: 2}
   animator: {fileID: 2225741164351350616}
   spin: {fileID: 5749920715737732675}
+--- !u!114 &6401312633584942810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5140418716299280944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6b8b77162ad1641891aba2dea322a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: OrangePlatformerPolish::OrangePlatformerPolish.Gameplay.PlayerAnimationDriver
+  config: {fileID: 11400000, guid: 70f7e920c465fb840af80c2e13c0654b, type: 2}
+  animator: {fileID: 2225741164351350616}
 --- !u!1 &5525088589253682143
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,6 +107,7 @@ GameObject:
   - component: {fileID: 4034641266414718406}
   - component: {fileID: 7744110840554606844}
   - component: {fileID: 5783156328895571961}
+  - component: {fileID: 8625337864739029728}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -167,6 +183,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: OrangePlatformer::OrangePlatformer.Gameplay.PlayerController
   config: {fileID: 11400000, guid: 5d05b7717eaead145a15ddef87675950, type: 2}
   cameraTransform: {fileID: 0}
+--- !u!114 &8625337864739029728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7490588336580590958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 482c9ccee8077b54bb95f07518f6b9c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: OrangePlatformerPolish::OrangePlatformerPolish.Gameplay.PlayerRenderInterpolator
+  config: {fileID: 11400000, guid: 70f7e920c465fb840af80c2e13c0654b, type: 2}
+  visual: {fileID: 173122731768074543}
 --- !u!1001 &7776878516667941953
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -242,7 +272,7 @@ Animator:
   m_GameObject: {fileID: 7434435966411028752}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ba3ea568ebd9c6440b14addf9f8c9b74, type: 2}
+  m_Controller: {fileID: 9100000, guid: 109354b3555a35f478bd58c54c95e279, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

@@ -17,5 +17,6 @@ namespace OrangePlatformer.Core
         event Action DiveStarted;
         event Action GroundPoundStarted;
         event Action GroundPoundImpact;
+        event Action Teleported; // Respawn 직후
     }
 }

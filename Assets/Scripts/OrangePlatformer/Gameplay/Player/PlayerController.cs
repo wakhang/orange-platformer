@@ -55,6 +55,7 @@ namespace OrangePlatformer.Gameplay
         public event Action DiveStarted;
         public event Action GroundPoundStarted;
         public event Action GroundPoundImpact;
+        public event Action Teleported;
 
         public PlayerMotorState State { get { return state; } }
         public Vector3 Velocity { get { return velocity; } }
@@ -119,6 +120,15 @@ namespace OrangePlatformer.Gameplay
             if (input.CrouchPressed) latchedCrouchPressed = true;
             if (input.DivePressed) latchedDivePressed = true;
             if (input.JumpHeld || input.JumpPressed) latchedJumpHeld = true;
+
+            // 방향 갱신 지연(최대 1 틱)을 없애기 위해 조향 가능한 상태에서는 매 프레임 목표 방향을 갱신
+            bool steerable = state == PlayerMotorState.Grounded || state == PlayerMotorState.Crouching
+                || ((state == PlayerMotorState.Airborne || state == PlayerMotorState.WallSlide) && wallLockTimer <= 0f);
+            if (steerable)
+            {
+                float camYaw = cameraTransform != null ? cameraTransform.eulerAngles.y : 0f;
+                UpdateFacing(PlayerMovementMath.CameraRelative(moveInput, camYaw));
+            }
 
             // 캐릭터를 이동 방향으로 회전 (시각 처리)
             if (desiredFacing.sqrMagnitude > 1e-4f)
@@ -628,6 +638,7 @@ namespace OrangePlatformer.Gameplay
 
             ApplyShape(false);
             controller.enabled = true;
+            if (Teleported != null) Teleported();
         }
     }
 }

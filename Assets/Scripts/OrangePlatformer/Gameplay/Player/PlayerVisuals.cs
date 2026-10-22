@@ -6,12 +6,9 @@ namespace OrangePlatformer.Gameplay
     /// <summary>Visual 오브젝트용: 애니메이터 파라미터, 스쿼시/스트레치, 공중 회전(플립)/기울기 연출.</summary>
     public sealed class PlayerVisuals : MonoBehaviour
     {
-        private const float TiltSharpnessScale = 1f;
-        private const float WallSlideTiltDeg = 15f;
         private const float HighJumpFlipDeg = 720f;
         private const float FullFlipDeg = 360f;
         private const float HighJumpDurationScale = 1.5f;
-        private static readonly int SpeedHash = Animator.StringToHash("Speed");
 
         [SerializeField] private OrangePlatformerConfig config;
         [SerializeField] private Animator animator;
@@ -28,7 +25,6 @@ namespace OrangePlatformer.Gameplay
         private float flipDuration;
         private float flipTime;
 
-        private Quaternion currentTilt = Quaternion.identity;
 
         private void Awake()
         {
@@ -54,7 +50,6 @@ namespace OrangePlatformer.Gameplay
             view.GroundPoundStarted -= OnGroundPoundStarted;
             // 비활성화 시 연출 상태 초기화
             flipActive = false;
-            currentTilt = Quaternion.identity;
             currentScaleY = 1f;
             ApplyScale();
             if (spin != null) spin.localRotation = Quaternion.identity;
@@ -65,16 +60,8 @@ namespace OrangePlatformer.Gameplay
             if (view == null) return;
             float dt = Time.deltaTime;
 
-            UpdateAnimator();
             UpdateSquash(dt);
             UpdateSpin(dt);
-        }
-
-        private void UpdateAnimator()
-        {
-            if (animator == null) return;
-            Vector3 v = view.Velocity;
-            animator.SetFloat(SpeedHash, Mathf.Sqrt(v.x * v.x + v.z * v.z));
         }
 
         private void UpdateSquash(float dt)
@@ -98,22 +85,6 @@ namespace OrangePlatformer.Gameplay
         {
             if (spin == null) return;
 
-            // 상태 기반 기울기 목표: 다이브는 X축 앞으로, 벽 슬라이드는 벽 반대쪽 Z 기울기
-            Quaternion targetTilt = Quaternion.identity;
-            PlayerMotorState state = view.State;
-            if (state == PlayerMotorState.Dive)
-            {
-                targetTilt = Quaternion.Euler(config.diveTiltDeg, 0f, 0f);
-            }
-            else if (state == PlayerMotorState.WallSlide)
-            {
-                // 벽 법선이 플레이어 오른쪽을 향하면(벽이 왼쪽) 오른쪽으로 기울어야 함 → 음의 Z 회전
-                float side = Vector3.Dot(view.WallNormal, transform.right);
-                float sign = side >= 0f ? 1f : -1f;
-                targetTilt = Quaternion.Euler(0f, 0f, -sign * WallSlideTiltDeg);
-            }
-            float t = 1f - Mathf.Exp(-config.squashRecoverSharpness * TiltSharpnessScale * dt);
-            currentTilt = Quaternion.Slerp(currentTilt, targetTilt, t);
 
             Quaternion flip = Quaternion.identity;
             if (flipActive)
@@ -132,7 +103,7 @@ namespace OrangePlatformer.Gameplay
                 }
             }
 
-            spin.localRotation = currentTilt * flip;
+            spin.localRotation = flip;
         }
 
         private void StartFlip(Vector3 axis, float totalDeg, float duration)

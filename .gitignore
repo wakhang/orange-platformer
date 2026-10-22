@@ -1,3 +1,6 @@
+# VARCO raw downloads and Blender work files: too large for git, kept on local disk
+/ArtSource/**/raw/
+/ArtSource/**/work/
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/

@@ -1,0 +1,6 @@
+{
+  "name": "OrangePlatformerPolish",
+  "rootNamespace": "OrangePlatformerPolish",
+  "references": ["OrangePlatformer", "Unity.InputSystem"],
+  "autoReferenced": true
+}

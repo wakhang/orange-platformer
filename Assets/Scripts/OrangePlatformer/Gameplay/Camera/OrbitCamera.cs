@@ -15,6 +15,8 @@ namespace OrangePlatformer.Gameplay
         private readonly RaycastHit[] hits = new RaycastHit[HitBufferSize];
         private IPlayerInput input;
         private Vector3 focus;
+        private IPlayerMotorView motorView;
+        private bool snapFocus;
         private float yaw;
         private float pitch;
 
@@ -34,9 +36,29 @@ namespace OrangePlatformer.Gameplay
 
         private void Start()
         {
-            if (target != null) input = target.GetComponentInParent<IPlayerInput>();
+            if (target != null)
+            {
+                input = target.GetComponentInParent<IPlayerInput>();
+                motorView = target.GetComponentInParent<IPlayerMotorView>();
+                if (motorView != null && isActiveAndEnabled) motorView.Teleported += OnTeleported;
+            }
             if (ignoreRoot == null) ignoreRoot = target;
             ApplyTransform();
+        }
+
+        private void OnEnable()
+        {
+            if (motorView != null) motorView.Teleported += OnTeleported;
+        }
+
+        private void OnDisable()
+        {
+            if (motorView != null) motorView.Teleported -= OnTeleported;
+        }
+
+        private void OnTeleported()
+        {
+            snapFocus = true;
         }
 
         private void LateUpdate()
@@ -57,7 +79,12 @@ namespace OrangePlatformer.Gameplay
             // 포커스 지점만 지수 스무딩 (프레임률 독립)
             float t = 1f - Mathf.Exp(-config.cameraFollowSharpness * dt);
             Vector3 desiredFocus = target.position + Vector3.up * config.cameraTargetHeight;
-            focus = Vector3.Lerp(focus, desiredFocus, t);
+            if (snapFocus)
+            {
+                focus = desiredFocus;
+                snapFocus = false;
+            }
+            else focus = Vector3.Lerp(focus, desiredFocus, t);
 
             ApplyTransform();
         }
